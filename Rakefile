@@ -1,13 +1,10 @@
 # -*- ruby -*-
 
-require 'rubygems'
-require 'hoe'
+require 'rake'
+require 'rspec/core/rake_task'
 
-Hoe.spec 'authlogic_pam' do
-  developer('Nat Budin', 'natbudin@ironmountain.com')
-  self.url = 'http://github.com/nbudin/authlogic_pam'
-  self.extra_deps << ['authlogic']
-  self.extra_deps << ['rpam', '~> 1.0.1']
-end
+RSpec::Core::RakeTask.new(:spec)
+
+task :default => :spec
 
 # vim: syntax=ruby
